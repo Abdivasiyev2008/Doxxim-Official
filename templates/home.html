@@ -1,0 +1,275 @@
+{% block content %}
+{% load static %}
+
+<!--A Design by W3layouts 
+Author: W3layout
+Author URL: http://w3layouts.com
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Frozen</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- Custom Theme files -->
+    <!--theme-style-->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Video Game Awards Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script
+        type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--flexslider-->
+    <link rel="stylesheet" href="{% static 'css/flexslider.css' %}" type="text/css" media="screen" />
+    <!--//flexslider-->
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="head-top">
+                    <div class="logo">
+                        <h1><a href="{% url 'home' %}"> Frozen <span>Cheats</span></a></h1>
+                    </div>
+                    <div class="top-nav">
+                        <span class="menu"><img src="{% static 'images/menu.png' %}" alt=""> </span>
+                        <ul>
+                            <li class="active"><a href="{% url 'home' %}">Bosh Sahifa</a></li>
+                            <li><a href="{% url 'free-cheat-list' %}">Tekin Chitlar</a></li>
+                            <li><a href="{% url 'paid-cheat-list' %}">Pullik Chitlar</a></li>
+                        <!--script-->
+                        <script>
+                            $("span.menu").click(function () {
+                                $(".top-nav ul").slideToggle(500, function () {
+                                });
+                            });
+                        </script>
+
+                    </div>
+
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--banner-->
+    <div class="banner">
+        <div class="container">
+            <h2>Chitlardan namunalar</h2>
+            <div class="banner-matter">
+                <div class="slider">
+                    <section class="slider">
+                        <div class="flexslider">
+                            <ul class="slides">
+                                <li>
+                                    <div class="ban">
+                                        <div class=" ban-in ban-grid">
+                                            <img class="img-responsive " style="width: 120%; height: 300px; border-radius: 50%;" src="{% static 'images/ba.png' %}" alt="" />
+                                        </div>
+                                        <div class=" ban-in ban-grid1">
+                                            <img class="img-responsive" style="width: 120%; height: 300px; border-radius: 50%;"src="{% static 'images/ba1.png' %}" alt="" />
+                                        </div>
+                                        <div class=" ban-in ban-grid2">
+                                            <img class="img-responsive " style="width: 120%; height: 300px; border-radius: 50%;"src="{% static 'images/ba.png' %}" alt="" />
+                                        </div>
+                                        <div class=" ban-in ban-grid3">
+                                            <img class="img-responsive " style="width: 120%; height: 300px; border-radius: 50%;"src="{% static 'images/ba3.png' %}" alt="" />
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="ban">
+                                        <div class=" ban-in ban-grid">
+                                            <img class="img-responsive "style="width: 120%; height: 300px; border-radius: 50%;" src="{% static 'images/ba.png' %}" alt="" />
+                                        </div>
+                                        <div class=" ban-in ban-grid1">
+                                            <img class="img-responsive" style="width: 120%; height: 300px; border-radius: 50%;"src="{% static 'images/ba1.png' %}" alt="" />
+                                        </div>
+                                        <div class=" ban-in ban-grid2">
+                                            <img class="img-responsive " style="width: 120%; height: 300px; border-radius: 50%;"src="{% static 'images/ba.png' %}" alt="" />
+                                        </div>
+                                        <div class=" ban-in ban-grid3">
+                                            <img class="img-responsive "style="width: 120%; height: 300px; border-radius: 50%;" src="{% static 'images/ba3.png' %}" alt="" />
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="ban">
+                                        <div class=" ban-in ban-grid">
+                                            <img class="img-responsive "style="width: 120%; height: 300px; border-radius: 50%;" src="{% static 'images/ba.png' %}" alt="" />
+                                        </div>
+                                        <div class=" ban-in ban-grid1">
+                                            <img class="img-responsive"style="width: 120%; height: 300px; border-radius: 50%;" src="{% static 'images/ba1.png' %}" alt="" />
+                                        </div>
+                                        <div class=" ban-in ban-grid2">
+                                            <img class="img-responsive " style="width: 120%; height: 300px; border-radius: 50%;"src="{% static 'images/ba.png' %}" alt="" />
+                                        </div>
+                                        <div class=" ban-in ban-grid3">
+                                            <img class="img-responsive "style="width: 120%; height: 300px; border-radius: 50%;" src="{% static 'images/ba3.png' %}" alt="" />
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--content-->
+    <div class="content">
+        <div class="container">
+            <!--content-top-->
+            <div class="content-top">
+                <div class="col-md-9 top-col">
+                    <div class="col-top">
+                        <div class="col-md-6 black">
+                            <a href=""><img class="img-responsive" src="{% static 'images/ab1.png' %}"
+                                    alt="">
+                                <div class="col">
+                                    <h4>Frozen</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 black">
+                            <a href=""><img class="img-responsive" src="{% static 'images/ab2.png' %}"
+                                    alt="">
+                                <div class="col">
+                                    <h4>Frozen</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="col-top-bottom">
+                        <h3 class="menber">YouTube kanalga o'tish</h3>
+                        <a href="https://youtube.com/" target="_blank" class="now-in">You Tube</a>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+                <div class="col-md-3 per">
+                    <a href=""><img style="height: 360px;" class="img-responsive" src="{% static 'images/youtube.png' %}" alt="">
+                        <div class="six">
+                            <h4>Frozen</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <!--//content-top-->
+        <!---->
+        <div class="container">
+            <div class="content-bottom">
+                <div class="col-md-6 bottom-content1">
+                    <video style="width: 100%;" controls>
+                        <source src="{% static 'videos/1.mp4' %}">
+                    </video>
+                </div>
+                <div class="col-md-6 bottom-content">
+                    <h4>Agar pullik Chitlardan ban yesangiz</h4>
+                    <ul>
+                        <li><a href="#"><i class="glyphicon glyphicon-ok"></i> Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit, sed do eiusmod.</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-ok"></i> Contrary to popular belief, Lorem Ipsum
+                                is not simply random text.</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-ok"></i> There are many variations of passages of
+                                Lorem Ipsum available, but .</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-ok"></i> Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit, sed do eiusmod.</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-ok"></i> The standard chunk of Lorem Ipsum used
+                                since the 1500s is .</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-ok"></i> There are many variations of passages of
+                                Lorem Ipsum available, but.</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-ok"></i> Contrary to popular belief, Lorem Ipsum
+                                is not simply random text.</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-ok"></i> The standard chunk of Lorem Ipsum used
+                                since the 1500s is.</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-ok"></i> Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit, sed do eiusmod.</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-ok"></i> Contrary to popular belief, Lorem Ipsum
+                                is not simply random text.</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <!---->
+
+    </div>
+    <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="col-md-4  top-footer">
+                    <ul>
+                        <li><a href="#"><i></i></a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 top-footer">
+                    <ul>
+                        <li><a href="#"><i class="youtube"></i></a></li>
+                        <li><a href="#">Youtube</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 top-footer">
+                    <ul>
+                        <li><a href="#"><i class="facebook"></i></a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <ul class="footer-grid">
+                <li><a href="{% url 'home' %}">Bosh Sahifa</a></li>
+                <li><a href="{% url 'free-cheat-list' %}">Tekin Chitlar</a></li>
+                <li><a href="{% url 'paid-cheat-list' %}">Pullik Chitlar</a></li>
+            </ul>
+            <p> © 2023 Frozen Pubg Mobile Cheats</p>
+        </div>
+    </div>
+    <script src="{% static 'js/easyResponsiveTabs.js' %}" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion           
+                width: 'auto', //auto or any width like 600px
+                fit: true   // 100% fit in a container
+            });
+        });
+
+    </script>
+    <script>window.jQuery || document.write('<script src="{% static 'js / libs / jquery - 1.7.min.js' %}">\x3C/script>')</script>
+    <!--FlexSlider-->
+    <script defer src="{% static 'js/jquery.flexslider.js' %}"></script>
+    <script type="text/javascript">
+        $(function () {
+            SyntaxHighlighter.all();
+        });
+        $(window).load(function () {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                start: function (slider) {
+                    $('body').removeClass('loading');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+{% endblock content %}

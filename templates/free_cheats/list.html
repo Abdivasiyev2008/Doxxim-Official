@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load hitcount_tags %}
+
+{% block content %}
+  {% for cheat in free_cheat %}
+    <div class="card" style="width: 18rem; float: left;">
+      <img src="{{ cheat.image.url }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ cheat.name }}</h5>
+        <p class="card-text">{{ cheat.about|slice:':100'|safe }}</p>
+        <strong>
+          <p>Narxi: {{ cheat.price| floatformat:3 }} UZS</p>
+        </strong>
+        <a href="{% url 'free-cheat-detail' cheat.pk %}" class="btn btn-primary">Ko'proq</a>
+
+        <p style="float: right;">👁‍🗨{% get_hit_count for cheat %}</p>
+
+      </div>
+    </div>
+
+  {% endfor %}
+{% endblock content %}
