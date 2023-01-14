@@ -4,21 +4,25 @@
 {% load hitcount_tags %}
 
 {% block content %}
-  {% for cheat in paid_cheat %}
-    <div class="card" style="width: 18rem; float: left;">
-      <img src="{{ cheat.image.url }}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{ cheat.name }}</h5>
-        <p class="card-text">{{ cheat.about|slice:':100'|safe }}</p>
-        <strong>
-          <p>Narxi: {{ cheat.price| floatformat:3 }} UZS</p>
-        </strong>
-        <a href="{% url 'paid-cheat-detail' cheat.pk %}" class="btn btn-primary">Ko'proq</a>
+  <link rel="stylesheet" href="{% static 'css/cheats_list.css' %}">
+  <div class="wrapper">
+    <h2><strong>Barcha Chitlar<span>( {{ paid_cheat.count }} )</span></strong></h2>
 
-        <p style="float: right;">👁‍🗨{% get_hit_count for cheat %}</p>
-
-      </div>
+    <div class="cards">
+      {% for cheat in paid_cheat %}
+        <a href="{% url 'paid-cheat-detail' cheat.pk %}">
+          <figure class="card">
+            <img src="{{ cheat.image.url }}" />
+            <figcaption>{{ cheat.name }}
+              <br>
+              <p style="float: right; position: relative; top: -30px;">👁‍🗨{% get_hit_count for cheat %}</p>
+              <br><b>Narxi: {{ cheat.price| floatformat:3 }} UZS</b>
+            </figcaption>
+            <figcaption style="top: -20px;">{{ cheat.about|slice:':100'|safe }}</figcaption>
+          </figure>
+        </a>
+      {% endfor %}
     </div>
+  </div>
 
-  {% endfor %}
 {% endblock content %}

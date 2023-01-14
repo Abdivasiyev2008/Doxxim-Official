@@ -19,67 +19,58 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/cheats_detail.css' %}">
 </head>
 
 <body>
+    <div id="container" style="height: 250%; width: 100%; position: relative; top: -80px;">
 
-    <style>
-        a {
-            text-decoration: none;
-        }
-        
-    </style>
+        <!-- Start	Product details -->
+        <div class="product-details">
 
-    <center>
-        <div class="card">
-            <div class="card-header">
-              {{ object.name }}
-            </div>
-            <div class="card-body">
-                <div class="video-player" style="height: 100%;">
-                    <video id="video">
-                        <source src="{{ object.video.url }}" type="video/mp4" />
-                    </video>
-                    <div class="controls">
-                        <button class="play-button control-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </button>
-                        <input type="range" min="0" max="100" class="timeline" value="0" />
-                        <button class="sound-button control-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-                            </svg>
-                        </button>
-                        <button class="control-button fullscreen-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <h5 class="card-title">{{ object.about|safe }}</h5>
+            <!-- 	Cheat Name -->
+            <h1>{{ object.name }}</h1>
+            <span class="hint-star star">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+            </span>
+
+            <p class="information">"{{ object.about|safe }}"</p>
+        </div>
+        <div class="product-image">
+            <br><br><br>
+            <video controls>
+                <source src="{{ object.video.url }}">
+            </video>
+            
+            <i class="fa fa-facebook" style="font-size:20px;">{% post_to_facebook object_or_url "Facebook" %}</i> &nbsp;
+            <i class="fa fa-telegram" style="font-size:20px;">{% post_to_telegram '{{ object.nomi }}' object_or_url "Telegram" %}</i>
+        </div>
+        <!--  End product image  -->
+
+        <!-- 		Control -->
+        <div class="control">
+            <!-- Start Button buying -->
+            <button class="btn">
+                <span>
+                    <a href="{{ object.cheat.url }}" style="text-decoration: none; color: rgb(247, 247, 247);" download="{{ object.cheat.url }}">Yuklab Olish</a>
+                </span>
+            </button>
+            <button class="btn">
+                <span>
+                    <a href="{% url 'free-cheat-list' %}" style="text-decoration: none; color: rgb(247, 247, 247);">Ortga Qaytish</a>
+                </span>
+            </button>
                 
-                <br>
-                <a href="{{ object.cheat.url }}" download="{{ object.cheat.url }}" class="btn btn-primary">Yuklab Olish</a>
-                <a href="{% url 'free-cheat-list' %}" class="btn btn-primary">Ortga Qaytish</a>
+            <!-- End Button buying -->
 
-                <br><br>
-                <i class="fa fa-facebook" style="font-size:20px">{% post_to_facebook object_or_url "Facebook" %}</i> &nbsp;
-                <i class="fa fa-telegram" style="font-size:20px">{% post_to_telegram '{{ object.nomi }}' object_or_url "Telegram" %}</i>
-                <br><br>
-            </div>
-          </div>
-    </center>
-    
-    <script src="{% static "js/video.js" %}"></script>
+        </div>
+    </div>
+
+    <!-- 	Start product image & Information -->
+
 </body>
-
-</html>
 {% endblock content %}
