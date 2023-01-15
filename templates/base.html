@@ -1,4 +1,5 @@
 {% load static %}
+
 {% load social_share %}
 
 <!DOCTYPE html>
@@ -30,6 +31,28 @@
                 <li><a class="dropdown-item" href="{% url 'free-cheat-list' %}">Bepul Chitlar</a></li>
               </ul>
             </li>
+            {% if user.is_authenticated %}
+            <div class="dropdown">
+              <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Hisobim
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="{% url 'password_change' %}"  class="dropdown-item" type="button">Parolni Almashtirish</a></li>
+                <li><a href="{% url 'logout' %}" class="dropdown-item" type="button">Chiqish</a></li>  
+              </ul>
+              </div>
+              {% else %}
+              <div class="dropdown">
+                <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Hisobim
+                </button>
+                <ul class="dropdown-menu">      
+                <li><a href="{% url 'signup' %}"  class="dropdown-item" type="button">Ro'yxatdan O'tish</a></li>
+                <li><a href="{% url 'login' %}" class="dropdown-item" type="button">Kirish</a></li>
+            
+                </ul>
+                </div>
+            {% endif %}
             {% if user.is_superuser %}
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{% url 'admin:index' %}">Admin Panel</a>

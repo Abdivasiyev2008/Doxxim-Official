@@ -24,6 +24,8 @@ urlpatterns = [
     path('free-pubg-cheats/', include('free_cheat.urls')),
     path('paid-pubg-cheats/', include('paid_cheat.urls')),
     path('hitcount/', include('hitcount.urls', namespace='hitcount')),
+    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
