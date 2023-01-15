@@ -23,6 +23,157 @@
 </head>
 
 <body>
+
+    <style>
+        .dropdown-toggle,
+        .form-control,
+        .btn-outline-success {
+            display: none;
+        }
+
+        .navbar-nav {
+            width: 100%;
+        }
+
+        @media(min-width:568px) {
+            .end {
+                margin-left: auto;
+            }
+        }
+
+        @media(max-width:768px) {
+            #post {
+                width: 100%;
+            }
+        }
+
+        #clicked {
+            padding-top: 1px;
+            padding-bottom: 1px;
+            text-align: center;
+            width: 100%;
+            background-color: #ecb21f;
+            border-color: #a88734 #9c7e31 #846a29;
+            color: black;
+            border-width: 1px;
+            border-style: solid;
+            border-radius: 13px;
+        }
+
+        #profile {
+            background-color: unset;
+
+        }
+
+        #post {
+            margin: 10px;
+            padding: 6px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            text-align: center;
+            background-color: #ecb21f;
+            border-color: #a88734 #9c7e31 #846a29;
+            color: black;
+            border-width: 1px;
+            border-style: solid;
+            border-radius: 13px;
+            width: 50%;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        #nav-items li a,
+        #profile {
+            text-decoration: none;
+            color: rgb(224, 219, 219);
+            background-color: #fff;
+        }
+
+
+        .comments {
+            margin-top: 5%;
+            margin-left: 20px;
+        }
+
+        .darker {
+            border: 1px solid #ecb21f;
+            background-color: #fff;
+            float: right;
+            border-radius: 5px;
+            padding-left: 40px;
+            padding-right: 30px;
+            padding-top: 10px;
+        }
+
+        .comment {
+            border: 1px solid rgba(16, 46, 46, 1);
+            background-color: rgba(16, 46, 46, 0.973);
+            float: left;
+            border-radius: 5px;
+            padding-left: 40px;
+            padding-right: 30px;
+            padding-top: 10px;
+
+        }
+
+        .comment h4,
+        .comment span,
+        .darker h4,
+        .darker span {
+            display: inline;
+        }
+
+        .comment p,
+        .comment span,
+        .darker p,
+        .darker span {
+            color: rgb(184, 183, 183);
+        }
+
+        h1,
+        h4 {
+            color: white;
+            font-weight: bold;
+        }
+
+        label {
+            color: rgb(212, 208, 208);
+        }
+
+        #align-form {
+            margin-top: 20px;
+        }
+
+        .form-group p a {
+            color: white;
+        }
+
+        #checkbx {
+            background-color: #fff;
+        }
+
+        #darker img {
+            margin-right: 15px;
+            position: static;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background-color: #fff;
+            border: 1px solid rgba(16, 46, 46, 1);
+            border-radius: 12px;
+        }
+
+        form {
+            border: 1px solid rgba(16, 46, 46, 1);
+            background-color: rgba(16, 46, 46, 0.973);
+            border-radius: 5px;
+            padding: 20px;
+        }
+    </style>
+
     <div id="container" style="height: 250%; width: 100%; position: relative; top: -80px;">
 
         <!-- Start	Product details -->
@@ -45,7 +196,7 @@
             <video controls>
                 <source src="{{ object.video.url }}">
             </video>
-            
+
             <i class="fa fa-facebook" style="font-size:20px;">{% post_to_facebook object_or_url "Facebook" %}</i> &nbsp;
             <i class="fa fa-telegram" style="font-size:20px;">{% post_to_telegram '{{ object.nomi }}' object_or_url "Telegram" %}</i>
         </div>
@@ -56,21 +207,58 @@
             <!-- Start Button buying -->
             <button class="btn">
                 <span>
-                    <a href="https://t.me/DrakoMalfoy_2" target="_blank" style="text-decoration: none; color: #fff;">Sotib Olish</a>
+                    <a href="https://t.me/DrakoMalfoy_2" target="_blank"
+                        style="text-decoration: none; color: #fff;">Sotib Olish</a>
                 </span>
             </button>
             <button class="btn">
                 <span>
-                    <a href="{% url 'paid-cheat-list' %}" style="text-decoration: none; color: rgb(247, 247, 247);">Ortga Qaytish</a>
+                    <a href="{% url 'paid-cheat-list' %}"
+                        style="text-decoration: none; color: rgb(247, 247, 247);">Ortga Qaytish</a>
                 </span>
             </button>
-                
             <!-- End Button buying -->
-
         </div>
     </div>
 
-    <!-- 	Start product image & Information -->
+    <center>
+        <!-- Main Body -->
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5 col-md-6 col-12 pb-4">
+                        <h1>Izohlar</h1>
+                        {% for comment in comments %}
+                        <div class="comment mt-4 text-justify float-left">
+                            <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="40"
+                                height="40">
+                            <h4>{{ comment.author }}</h4>
+                            <span>- {{ comment.date_posted }}</span>
+                            <br>
+                            <p>{{ comment.content | safe }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
+
+                        <div class="form-group">
+                            <h4>Izoh Yozish</h4>
+                        </div>
+                        <div class="form-group">
+                            <form method="POST" style="position: relative; right: 20px; color: #fff;">{% csrf_token %}
+                                <div class="form-group">
+                                    {{ comment_form }} <br>
+                                    <button class="btn btn-info" type="submit"
+                                        style="position: relative; left: 20px; height: 50px; width: 100px;">
+                                        Jo'natish</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </center>
 
 </body>
 {% endblock content %}
